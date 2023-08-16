@@ -33,7 +33,46 @@ int main()
         }
         while (cnt < k)
         {
-            
+            r = count[cnt][0];
+            c = count[cnt][1];
+            matrix[r][c] = 0;
+            for (int j = 0; j < 8; ++j)
+            {
+                if (r + dx[j] >= 0 && r + dx[j] < n && c + dy[j] >= 0 && c + dy[j] < m)
+                {
+                    matrix[r + dx[j]][c + dy[j]] = 0;
+                }
+            }
+
+            if (cnt % 5 == 4 )
+            {
+                for (int i = 0; i < n; ++i)
+                {
+                    for (int j = 0; j < m; ++j)
+                    {
+                        if (matrix[i][j] != 0 && matrix[i][j] < 10)
+                            matrix[i][j]++;
+                        
+                    }
+                }
+                for (int i = 0; i < n; ++i)
+                {
+                    for (int j = 0; j < m; ++j)
+                    {
+                        if (matrix[i][j] == 10)
+                        {
+                            for (int l = 0; l < 8; ++l)
+                            {
+                                int row = i + dx[l];
+                                int col = j + dy[l];
+                                if (l % 2 == 0 && row >= 0 && row < n && col >= 0 && col < m && matrix[row][col] == 0)
+                                    matrix[row][col]++;
+                            }
+                        }
+                    }
+                }
+            }
+            cnt++;
         }
         for (int i = 0; i < n; ++i)
         {
