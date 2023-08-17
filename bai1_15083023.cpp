@@ -24,17 +24,18 @@ int main()
                 cin >> matrix[i][j];
             }
         }
-        for (int i = 0; i < k; ++i)
-        {
-            for (int j = 0; j < 2; ++j)
-            {
-                cin >> count[i][j];
-            }
-        }
+        // for (int i = 0; i < k; ++i)
+        // {
+        //     for (int j = 0; j < 2; ++j)
+        //     {
+        //         cin >> count[i][j];
+        //     }
+        // }
         while (cnt < k)
         {
-            r = count[cnt][0];
-            c = count[cnt][1];
+            cin >> r >> c;
+            // r = count[cnt][0];
+            // c = count[cnt][1];
             matrix[r][c] = 0;
             for (int j = 0; j < 8; ++j)
             {
